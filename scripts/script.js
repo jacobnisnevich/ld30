@@ -101,16 +101,20 @@ function init() {
         return false;
     };
 
-    function moveBall(key) {
+    function moveBall(key, dir) {
         if (key == "left") {
             ball.position.x -= gameSpeed;
-            return "NULL";
         }
         else if (key == "right") {
             ball.position.x += gameSpeed;
-            return "NULL";
         }
-        ballGravity(dir);
+        if (dir == "up") {
+            ballSpeed = ballSpeed / gravityRatio;
+        }
+        else {
+            ballSpeed = ballSpeed * gravityRatio;
+        }
+        return "NULL";
     }
 
     function ballGravity(dir) {
@@ -162,15 +166,6 @@ function init() {
             ballSpeed = 5;
             scoreCounter++;
             score.setText(scoreCounter)
-        //    else if (dir == "up") {
-        //        dir = "down";
-        //    }
-        //    else if (dir == "left") {
-        //        dir = "right";
-        //    }
-        //    else if (dir == "right") {
-        //        dir = "left";
-        //    }
         }
 
         key = moveBall(key);
