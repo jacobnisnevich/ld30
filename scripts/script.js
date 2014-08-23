@@ -44,7 +44,7 @@ function init() {
     platform.anchor.x = 0.5;
     platform.anchor.y = 0.5;
 
-    platform.position.x = 800;
+    platform.position.x = 200;
     platform.position.y = 300;
 
     stage.addChild(platform);
@@ -149,7 +149,7 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        platform.position.x -= (gameSpeed); 
+        // platform.position.x -= (gameSpeed); 
 
         if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
             if (dir == "down") {
