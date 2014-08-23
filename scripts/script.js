@@ -44,7 +44,7 @@ function init() {
     platform.anchor.x = 0.5;
     platform.anchor.y = 0.5;
 
-    platform.position.x = 400;
+    platform.position.x = 800;
     platform.position.y = 300;
 
     stage.addChild(platform);
@@ -124,7 +124,7 @@ function init() {
         }
     }
 
-    function spawnPlatforms {
+    function spawnPlatforms() {
         // TODO
     }
 
