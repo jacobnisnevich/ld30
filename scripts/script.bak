@@ -49,28 +49,6 @@ function init() {
 
     stage.addChild(platform);
 
-    var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
-
-    function createBowlingPin() {
-        var chance = Math.floor(Math.random(0,100) * 100;
-        if (chance == 1) {
-        var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
-        bowlingPin.anchor.x = .05;
-        bowlingPin.anchor.y = 0.5;
-        bowlingPin.position.x = 400;
-        bowlingPin.position.y = 300;
-        }
-    }
-
-    hitTest = function(ball.position.x, ball.position.y, ball.width, ball.height,
-        platform.position.x, platform.position.y, platform.width, platform.height)
-    {
-        if (ball.position.x + ball.width > platform.position.x)
-            if (ball.position.x < platform.position.x + platform.width)
-                if (ball.position.y + ball.height > platform.position.y)
-                    if (ball.position.y < platform.position.y + platform.height)
-                        ball.position.y -= 50;
-
     if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height))
         ball.position.y -= 50;
 
@@ -90,8 +68,6 @@ function init() {
         mid.tilePosition.x -= 0.64;
         platform.position.x -= 1;
         ball.position.y += 1;
-
-        createBowlingPin();
 
         renderer.render(stage);
 
