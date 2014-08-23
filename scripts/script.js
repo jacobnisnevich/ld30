@@ -33,20 +33,12 @@ function init() {
 
     stage.addChild(ball);
 
-    function animate() {
-
-        requestAnimFrame( animate );
-
-        ball.position.x += 0.1;
-
-        renderer.render(stage);
-    }
-
     requestAnimFrame(update);
 
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
+        ball.position.x += 0.1;
 
         renderer.render(stage);
 
