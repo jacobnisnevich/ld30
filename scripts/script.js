@@ -168,7 +168,8 @@ function init() {
             score.setText(scoreCounter)
         }
 
-        key = moveBall(key);
+        if (key != "NULL")
+            key = moveBall(key, dir);
 
         dir = ballGravity(dir);
 
