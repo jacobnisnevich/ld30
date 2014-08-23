@@ -149,7 +149,7 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        platform.position.x -= (gameSpeed/2); 
+        platform.position.x -= (gameSpeed); 
 
         if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
             if (dir == "down") {
