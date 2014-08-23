@@ -113,7 +113,7 @@ function init() {
         if (dir == "up") {
             if (ballSpeed > 0.01) {
                 ball.position.y -= ballSpeed;
-                ballSpeed = ballSpeed / 1.1;
+                ballSpeed = ballSpeed / 1.05;
             }
             else {
                 dir = "down";
@@ -121,7 +121,7 @@ function init() {
         }
         else if (dir == "down") {
             ball.position.y += ballSpeed;
-            ballSpeed = ballSpeed * 1.1;
+            ballSpeed = ballSpeed * 1.05;
         }
     }
 
