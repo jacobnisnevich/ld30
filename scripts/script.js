@@ -61,16 +61,7 @@ function init() {
         bowlingPin.position.y = 300;
         }
     }
-
-    hitTest = function(ball.position.x, ball.position.y, ball.width, ball.height,
-        platform.position.x, platform.position.y, platform.width, platform.height)
-    {
-        if (ball.position.x + ball.width > platform.position.x)
-            if (ball.position.x < platform.position.x + platform.width)
-                if (ball.position.y + ball.height > platform.position.y)
-                    if (ball.position.y < platform.position.y + platform.height)
-                        ball.position.y -= 50;
-
+    
     if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height))
         ball.position.y -= 50;
 
