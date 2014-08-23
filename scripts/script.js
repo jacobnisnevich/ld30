@@ -132,7 +132,7 @@ function init() {
         }
         else if (dir == "down") {
             ball.position.y += ballSpeed;
-            ballSpeed = ballSpeed * gravityRatio * 2;
+            ballSpeed = ballSpeed * gravityRatio;
             return "down";
         }
     }
