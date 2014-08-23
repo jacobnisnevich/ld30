@@ -73,7 +73,7 @@ function init() {
 
     window.addEventListener('keydown', doKeyDown, true);
 
-    var gameSpeed = 2;
+    var gameSpeed = 4;
     var ballSpeed = 0.1;
     var gravityRatio = 1.05;
     var scoreCounter = 0;
@@ -155,7 +155,7 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        // platform.position.x -= (gameSpeed); 
+        // platform.position.x -= (gameSpeed/2); 
 
         if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
             dir = "up";
