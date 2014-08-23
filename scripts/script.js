@@ -52,7 +52,7 @@ function init() {
     if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height))
         ball.position.y -= 50;
 
-    hitTest = function(x1, y1, w1, h1, x2, y2, w2, h2) {
+    function hitTest(x1, y1, w1, h1, x2, y2, w2, h2) {
         if (x1 + w1 > x2)
             if (x1 < x2 + w2)
                 if (y1 + h1 > y2)
