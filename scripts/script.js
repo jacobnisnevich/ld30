@@ -36,17 +36,23 @@ function init() {
 
     mid.click = function(mouseData) {
        ball.position.y -= 5;
-       ball.position.y -= 5;
-       ball.position.y -= 5;
-       ball.position.y -= 5;
-       ball.position.y -= 5;
     }
+
+    var platformTexture = PIXI.Texture.fromImage("images/platform.png");
+    var platform = new PIXI.Sprite(platformTexture);
+
+    ball.anchor.x = 0.5;
+    ball.anchor.y = 0.5;
+
+    ball.position.x = 400;
+    ball.position.y = 300;
 
     requestAnimFrame(update);
 
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
+        platform.position.x -= 1;
         ball.position.y += 1;
 
         renderer.render(stage);
