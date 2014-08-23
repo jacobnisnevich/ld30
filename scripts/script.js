@@ -35,7 +35,11 @@ function init() {
     stage.addChild(ball);
 
     mid.click = function(mouseData) {
-       ball.position.y -= 50;
+       ball.position.y -= 5;
+       ball.position.y -= 5;
+       ball.position.y -= 5;
+       ball.position.y -= 5;
+       ball.position.y -= 5;
     }
 
     requestAnimFrame(update);
