@@ -34,8 +34,8 @@ function init() {
 
     stage.addChild(ball);
 
-    ball.tap = function(touchData) {
-       ball.position.y += 5;
+    ball.mouseover = function(mouseData) {
+       ball.position.y -= 5;
     }
 
     requestAnimFrame(update);
@@ -43,7 +43,7 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        ball.position.y -= 0.5;
+        ball.position.y += 0.5;
 
         renderer.render(stage);
 
