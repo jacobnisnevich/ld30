@@ -96,21 +96,18 @@ function init() {
     var gameSpeed = 2;
     var ballSpeed = 0.1;
 
-    function moveBall(dir, key) {
-    //    if (dir == "up") {
-    //        ball.position.y -= gameSpeed;
-    //    }
-    //    else if (dir == "down") {
-    //        ball.position.y += gameSpeed;
-    //    }
+    function moveBall(key) {
         if (key == "left") {
             ball.position.x -= gameSpeed;
-            return "down";
+            return "NULL";
         }
         else if (key == "right") {
             ball.position.x += gameSpeed;
-            return "down";
+            return "NULL";
         }
+    }
+
+    function ballGravity(dir) {
         if (dir == "up") {
             if (ballSpeed > 0.1) {
                 ball.position.y -= ballSpeed;
@@ -168,7 +165,9 @@ function init() {
         //    }
         }
 
-        dir = moveBall(dir, key);
+        key = moveBall(key);
+
+        dir = ballGravity(dir);
 
         createBowlingPin();
 
