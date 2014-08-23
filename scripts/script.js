@@ -116,6 +116,7 @@ function init() {
                 ballSpeed = ballSpeed / 1.05;
             }
             else {
+                ballSpeed = 0.3;
                 dir = "down";
             }
         }
@@ -152,10 +153,8 @@ function init() {
         // platform.position.x -= (gameSpeed); 
 
         if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
-            if (dir == "down") {
-                dir = "up";
-                ballSpeed = 5;
-            }
+            dir = "up";
+            ballSpeed = 5;
         //    else if (dir == "up") {
         //        dir = "down";
         //    }
