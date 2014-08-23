@@ -175,10 +175,6 @@ function init() {
 
         createBowlingPin();
 
-        if (ball.position.y > 800) {
-            init();
-        }
-
         renderer.render(stage);
 
         requestAnimFrame(update);
