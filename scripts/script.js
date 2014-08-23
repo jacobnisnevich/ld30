@@ -51,6 +51,25 @@ function init() {
 
     var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
 
+    function doKeyDown(evt){
+        switch (evt.keyCode) {
+            case 38:  /* Up arrow was pressed */
+                ball.position.y -= 5;
+                break;
+            case 40:  /* Down arrow was pressed */
+                ball.position.y += 5;
+                break;
+            case 37:  /* Left arrow was pressed */
+                ball.position.x -= 5;
+                break;
+            case 39:  /* Right arrow was pressed */
+                ball.position.x += 5;
+                break;
+        }
+    }
+
+    window.addEventListener('keydown', doKeyDown, true);
+
     function createBowlingPin() {
         var chance = Math.floor(Math.random(0,100) * 100);
         if (chance == 1) {
@@ -61,9 +80,10 @@ function init() {
         bowlingPin.position.y = 300;
         }
     }
-    
-    if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height))
+
+    if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
         ball.position.y -= 50;
+    }
 
     function hitTest(x1, y1, w1, h1, x2, y2, w2, h2) {
         if (x1 + w1 > x2)
