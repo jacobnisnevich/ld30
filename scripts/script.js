@@ -116,8 +116,8 @@ function init() {
                 ballSpeed = ballSpeed / 1.05;
             }
             else {
-                ballSpeed = 0.3;
                 dir = "down";
+                return;
             }
         }
         else if (dir == "down") {
