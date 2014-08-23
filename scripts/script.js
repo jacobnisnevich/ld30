@@ -37,7 +37,7 @@ function init() {
 
         requestAnimFrame( animate );
 
-        ball.rotation += 0.1;
+        ball.position.x += 0.1;
 
         renderer.render(stage);
     }
