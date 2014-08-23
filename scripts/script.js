@@ -79,7 +79,7 @@ function init() {
     var scoreCounter = 0;
 
     var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
-    stage.addChild(text);
+    stage.addChild(score);
 
     function createBowlingPin() {
         var chance = Math.floor(Math.random(0,100) * 100);
