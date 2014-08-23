@@ -22,11 +22,28 @@ function init() {
     mid.tilePosition.y = 0;
     stage.addChild(mid);
 
+    var ballTexture = PIXI.Texture.fromImage("images/bowling_ball.png");
+    var ball = new PIXI.Sprite(ballTexture);
+    mid.setInteractive(true);
+
+    ball.anchor.x = 0.5;
+    ball.anchor.y = 0.5;
+
+    ball.position.x = 200;
+    ball.position.y = 150;
+
+    stage.addChild(ball);
+
+    mid.click = function(mouseData) {
+       ball.position.y -= 15;
+    }
+
     requestAnimFrame(update);
 
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
+        ball.position.y += 1;
 
         renderer.render(stage);
 
