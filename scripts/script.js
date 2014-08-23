@@ -118,7 +118,7 @@ function init() {
             }
         }
         else if (dir == "down") {
-            ball.position.y -= ballSpeed;
+            ball.position.y += ballSpeed;
             ballSpeed = ballSpeed * 0.5;
         }
     }
