@@ -22,13 +22,12 @@ function init() {
     stage.addChild(mid);
 
     requestAnimFrame(update);
-}
+    function update() {
+        far.tilePosition.x -= 0.128;
+        mid.tilePosition.x -= 0.64;
 
-function update() {
-  far.tilePosition.x -= 0.128;
-  mid.tilePosition.x -= 0.64;
+        renderer.render(stage);
 
-  renderer.render(stage);
-
-  requestAnimFrame(update);
+        requestAnimFrame(update);
+    }
 }
