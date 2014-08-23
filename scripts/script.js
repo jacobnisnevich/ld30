@@ -52,7 +52,7 @@ function init() {
     var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
 
     var dir = "down";
-    var key = NULL;
+    var key = "NULL";
 
     function doKeyDown(evt){
         switch (evt.keyCode) {
