@@ -83,10 +83,6 @@ function init() {
         }
     }
 
-    if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
-        ball.position.y -= 50;
-    }
-
     function hitTest(x1, y1, w1, h1, x2, y2, w2, h2) {
         if (x1 + w1 > x2)
             if (x1 < x2 + w2)
@@ -128,12 +124,16 @@ function init() {
         }
     }
 
+    function spawnPlatforms {
+        // TODO
+    }
+
     requestAnimFrame(update);
 
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        // platform.position.x -= (gameSpeed/2);
+        platform.position.x -= (gameSpeed/2);
 
         moveBall(dir);
 
