@@ -96,18 +96,20 @@ function init() {
         return false;
     };
 
+    var gameSpeed = 2;
+
     function moveBall(dir) {
         if (dir == "up") {
-            ball.position.y -= 5;
+            ball.position.y -= gameSpeed;
         }
         else if (dir == "down") {
-            ball.position.y += 5;
+            ball.position.y += gameSpeed;
         }
         else if (dir == "left") {
-            ball.position.x -= 5;
+            ball.position.x -= gameSpeed;
         }
         else if (dir == "right") {
-            ball.position.x += 5;
+            ball.position.x += gameSpeed;
         }
     }
 
@@ -131,7 +133,7 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        platform.position.x -= 1;
+        platform.position.x -= (gameSpeed/2);
 
         moveBall(dir);
 
