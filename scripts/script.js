@@ -1,5 +1,6 @@
 function init() {
-    var stage = new PIXI.Stage(0x66FF99);
+    var interactive = true;
+    var stage = new PIXI.Stage(0x111111, interactive);
     var width = document.getElementById("game-canvas").width;
     var height = document.getElementById("game-canvas").height;
     renderer = PIXI.autoDetectRenderer(width, height, document.getElementById("game-canvas"));
@@ -22,6 +23,7 @@ function init() {
     stage.addChild(mid);
 
     requestAnimFrame(update);
+
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
