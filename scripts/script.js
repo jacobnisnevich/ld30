@@ -75,7 +75,7 @@ function init() {
 
     var gameSpeed = 2;
     var ballSpeed = 0.1;
-    var gravityRatio = 1.1;
+    var gravityRatio = 1.05;
     var scoreCounter = 0;
 
     var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
