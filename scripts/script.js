@@ -110,9 +110,11 @@ function init() {
         }
         if (dir == "up") {
             ballSpeed = ballSpeed / gravityRatio;
+            ball.position.y -= ballSpeed;
         }
         else {
             ballSpeed = ballSpeed * gravityRatio;
+            ball.position.y += ballSpeed;
         }
         return "NULL";
     }
