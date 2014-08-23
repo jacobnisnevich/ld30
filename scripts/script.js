@@ -110,6 +110,7 @@ function init() {
             ball.position.x += gameSpeed;
             return "NULL";
         }
+        ballGravity(dir);
     }
 
     function ballGravity(dir) {
