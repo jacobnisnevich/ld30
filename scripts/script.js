@@ -55,12 +55,12 @@ function init() {
 
     function doKeyDown(evt){
         switch (evt.keyCode) {
-            case 38:  /* Up arrow was pressed */
-                dir = "up";
-                break;
-            case 40:  /* Down arrow was pressed */
-                dir = "down";
-                break;
+        //    case 38:  /* Up arrow was pressed */
+        //        dir = "up";
+        //        break;
+        //    case 40:  /* Down arrow was pressed */
+        //        dir = "down";
+        //        break;
             case 37:  /* Left arrow was pressed */
                 dir = "left";
                 break;
@@ -93,19 +93,33 @@ function init() {
     };
 
     var gameSpeed = 2;
+    var ballSpeed = 5;
 
     function moveBall(dir) {
-        if (dir == "up") {
-            ball.position.y -= gameSpeed;
-        }
-        else if (dir == "down") {
-            ball.position.y += gameSpeed;
-        }
-        else if (dir == "left") {
+    //    if (dir == "up") {
+    //        ball.position.y -= gameSpeed;
+    //    }
+    //    else if (dir == "down") {
+    //        ball.position.y += gameSpeed;
+    //    }
+        if (dir == "left") {
             ball.position.x -= gameSpeed;
         }
         else if (dir == "right") {
             ball.position.x += gameSpeed;
+        }
+        if (dir == "up") {
+            if (ballSpeed > 0.01) {
+                ball.position.y -= ballSpeed;
+                ballSpeed = ballSpeed / 2;
+            }
+            else {
+                dir = "down";
+            }
+        }
+        else if (dir == "down") {
+            ball.position.y -= ballSpeed;
+            ballSpeed = ballSpeed * 2;
         }
     }
 
@@ -133,24 +147,25 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        platform.position.x -= (gameSpeed/2);
-
-        moveBall(dir);
+        platform.position.x -= (gameSpeed/2); 
 
         if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
-            if (dir == "up") {
-                dir = "down";
-            }
-            else if (dir == "down") {
+            if (dir == "down") {
                 dir = "up";
+                ballSpeed = 5;
             }
-            else if (dir == "left") {
-                dir = "right";
-            }
-            else if (dir == "right") {
-                dir = "left";
-            }
+        //    else if (dir == "up") {
+        //        dir = "down";
+        //    }
+        //    else if (dir == "left") {
+        //        dir = "right";
+        //    }
+        //    else if (dir == "right") {
+        //        dir = "left";
+        //    }
         }
+
+        moveBall(dir);
 
         createBowlingPin();
 
