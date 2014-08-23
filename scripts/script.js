@@ -24,7 +24,7 @@ function init() {
 
     var ballTexture = PIXI.Texture.fromImage("images/bowling_ball.png");
     var ball = new PIXI.Sprite(ballTexture);
-    ball.setInteractive(true);
+    mid.setInteractive(true);
 
     ball.anchor.x = 0.5;
     ball.anchor.y = 0.5;
@@ -34,8 +34,8 @@ function init() {
 
     stage.addChild(ball);
 
-    ball.click = function(mouseData) {
-       ball.position.y -= 5;
+    mid.click = function(mouseData) {
+       ball.position.y -= 15;
     }
 
     requestAnimFrame(update);
@@ -43,7 +43,7 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        ball.position.y += 0.5;
+        ball.position.y += 5;
 
         renderer.render(stage);
 
