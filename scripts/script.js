@@ -111,6 +111,21 @@ function init() {
         }
     }
 
+    function flip(dir) {
+        if (dir == "up") {
+            dir = "down";
+        }
+        else if (dir == "down") {
+            dir = "up";
+        }
+        else if (dir == "left") {
+            dir = "right";
+        }
+        else if (dir == "right") {
+            dir = "left";
+        }
+    }
+
     requestAnimFrame(update);
 
     function update() {
@@ -121,7 +136,7 @@ function init() {
         moveBall(dir);
 
         if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
-            ball.position.y -= 50;
+            flip(dir);
         }
 
         createBowlingPin();
