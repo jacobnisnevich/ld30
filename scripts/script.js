@@ -93,7 +93,7 @@ function init() {
     };
 
     var gameSpeed = 2;
-    var ballSpeed = 5;
+    var ballSpeed = 0.1;
 
     function moveBall(dir) {
     //    if (dir == "up") {
