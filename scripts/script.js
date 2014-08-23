@@ -62,10 +62,10 @@ function init() {
     //          dir = "down";
     //          break;
             case 37:  /* Left arrow was pressed */
-                dir = "left";
+                key = "left";
                 break;
             case 39:  /* Right arrow was pressed */
-                dir = "right";
+                key = "right";
                 break;
         }
     }
@@ -95,18 +95,18 @@ function init() {
     var gameSpeed = 2;
     var ballSpeed = 0.1;
 
-    function moveBall(dir) {
+    function moveBall(dir, key) {
     //    if (dir == "up") {
     //        ball.position.y -= gameSpeed;
     //    }
     //    else if (dir == "down") {
     //        ball.position.y += gameSpeed;
     //    }
-        if (dir == "left") {
+        if (key == "left") {
             ball.position.x -= gameSpeed;
             return "down";
         }
-        else if (dir == "right") {
+        else if (key == "right") {
             ball.position.x += gameSpeed;
             return "down";
         }
@@ -167,7 +167,7 @@ function init() {
         //    }
         }
 
-        dir = moveBall(dir);
+        dir = moveBall(dir, key);
 
         createBowlingPin();
 
