@@ -5,9 +5,15 @@ function init() {
     renderer = PIXI.autoDetectRenderer(width, height, document.getElementById("game-canvas"));
     renderer.render(stage);
 
-    var farTexture = PIXI.Texture.fromImage("images/background.png");
-      far = new PIXI.Sprite(farTexture);
-      far.position.x = 0;
-      far.position.y = 0;
-      stage.addChild(far);
+    var farTexture = PIXI.Texture.fromImage("images/background_far.png");
+    far = new PIXI.Sprite(farTexture);
+    far.position.x = 0;
+    far.position.y = 0;
+    stage.addChild(far);
+
+    var midTexture = PIXI.Texture.fromImage("images/background_near.png");
+    mid = new PIXI.Sprite(midTexture);
+    mid.position.x = 0;
+    mid.position.y = 0;
+    stage.addChild(mid);
 }
