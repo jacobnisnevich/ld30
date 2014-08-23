@@ -41,11 +41,13 @@ function init() {
     var platformTexture = PIXI.Texture.fromImage("images/platform.png");
     var platform = new PIXI.Sprite(platformTexture);
 
-    ball.anchor.x = 0.5;
-    ball.anchor.y = 0.5;
+    platform.anchor.x = 0.5;
+    platform.anchor.y = 0.5;
 
-    ball.position.x = 400;
-    ball.position.y = 300;
+    platform.position.x = 400;
+    platform.position.y = 300;
+
+    stage.addChild(platform);
 
     requestAnimFrame(update);
 
