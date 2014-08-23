@@ -22,6 +22,26 @@ function init() {
     mid.tilePosition.y = 0;
     stage.addChild(mid);
 
+    var ballTexture = PIXI.Texture.fromImage("images/bowling_ball.png");
+    var ball = new PIXI.Sprite(ballTexture);
+
+    ball.anchor.x = 0.5;
+    ball.anchor.y = 0.5;
+
+    ball.position.x = 200;
+    ball.position.y = 150;
+
+    stage.addChild(ball);
+
+    function animate() {
+
+        requestAnimFrame( animate );
+
+        ball.rotation += 0.1;
+
+        renderer.render(stage);
+    }
+
     requestAnimFrame(update);
 
     function update() {
