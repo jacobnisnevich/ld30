@@ -6,7 +6,7 @@ function init() {
     renderer.render(stage);
 
     var farTexture = PIXI.Texture.fromImage("images/background_far.png");
-    far = new PIXI.TilingSprite(farTexture, 512, 256);
+    far = new PIXI.TilingSprite(farTexture, 800, 600);
     far.position.x = 0;
     far.position.y = 0;
     far.tilePosition.x = 0;
@@ -14,7 +14,7 @@ function init() {
     stage.addChild(far);
 
     var midTexture = PIXI.Texture.fromImage("images/background_near.png");
-    mid = new PIXI.TilingSprite(midTexture, 512, 256);
+    mid = new PIXI.TilingSprite(midTexture, 800, 600);
     mid.position.x = 0;
     mid.position.y = 0;
     mid.tilePosition.x = 0;
