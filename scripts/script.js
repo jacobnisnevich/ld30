@@ -117,8 +117,6 @@ function init() {
             }
             else {
                 dir = "down";
-                ballSpeed = 0.2;
-                return;
             }
         }
         else if (dir == "down") {
@@ -127,7 +125,7 @@ function init() {
         }
     }
 
-    function flip(dir) {
+    function flipDir(dir) {
         if (dir == "up") {
             dir = "down";
         }
