@@ -104,9 +104,11 @@ function init() {
     //    }
         if (dir == "left") {
             ball.position.x -= gameSpeed;
+            dir = "down";
         }
         else if (dir == "right") {
             ball.position.x += gameSpeed;
+            dir = "down";
         }
         if (dir == "up") {
             if (ballSpeed > 0.01) {
