@@ -73,6 +73,14 @@ function init() {
 
     window.addEventListener('keydown', doKeyDown, true);
 
+    var gameSpeed = 2;
+    var ballSpeed = 0.1;
+    var gravityRatio = 1.05;
+    var scoreCounter = 0;
+
+    var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
+    stage.addChild(text);
+
     function createBowlingPin() {
         var chance = Math.floor(Math.random(0,100) * 100);
         if (chance == 1) {
@@ -93,9 +101,6 @@ function init() {
         return false;
     };
 
-    var gameSpeed = 2;
-    var ballSpeed = 0.1;
-
     function moveBall(key) {
         if (key == "left") {
             ball.position.x -= gameSpeed;
@@ -111,7 +116,7 @@ function init() {
         if (dir == "up") {
             if (ballSpeed > 0.1) {
                 ball.position.y -= ballSpeed;
-                ballSpeed = ballSpeed / 1.05;
+                ballSpeed = ballSpeed / gravityRatio;
                 return "up";
             }
             else {
@@ -120,7 +125,7 @@ function init() {
         }
         else if (dir == "down") {
             ball.position.y += ballSpeed;
-            ballSpeed = ballSpeed * 1.05;
+            ballSpeed = ballSpeed * gravityRatio;
             return "down";
         }
     }
@@ -154,6 +159,8 @@ function init() {
         if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
             dir = "up";
             ballSpeed = 5;
+            scoreCounter++;
+            score.setText(scoreCounter)
         //    else if (dir == "up") {
         //        dir = "down";
         //    }
