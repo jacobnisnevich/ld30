@@ -133,7 +133,7 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        platform.position.x -= (gameSpeed/2);
+        // platform.position.x -= (gameSpeed/2);
 
         moveBall(dir);
 
