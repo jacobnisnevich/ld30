@@ -104,24 +104,26 @@ function init() {
     //    }
         if (dir == "left") {
             ball.position.x -= gameSpeed;
-            dir = "down";
+            return "down";
         }
         else if (dir == "right") {
             ball.position.x += gameSpeed;
-            dir = "down";
+            return "down";
         }
         if (dir == "up") {
             if (ballSpeed > 0.1) {
                 ball.position.y -= ballSpeed;
                 ballSpeed = ballSpeed / 1.05;
+                return "up";
             }
             else {
-                dir = "down";
+                return "down";
             }
         }
         else if (dir == "down") {
             ball.position.y += ballSpeed;
             ballSpeed = ballSpeed * 1.05;
+            return "down";
         }
     }
 
@@ -165,7 +167,7 @@ function init() {
         //    }
         }
 
-        moveBall(dir);
+        dir = moveBall(dir);
 
         createBowlingPin();
 
