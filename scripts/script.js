@@ -34,7 +34,7 @@ function init() {
 
     stage.addChild(ball);
 
-    ball.mouseover = function(mouseData) {
+    ball.click = function(mouseData) {
        ball.position.y -= 5;
     }
 
