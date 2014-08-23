@@ -138,7 +138,18 @@ function init() {
         moveBall(dir);
 
         if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
-            dir = "up";
+            if (dir == "up") {
+                dir = "down";
+            }
+            else if (dir == "down") {
+                dir = "up";
+            }
+            else if (dir == "left") {
+                dir = "right";
+            }
+            else if (dir == "right") {
+                dir = "left";
+            }
         }
 
         createBowlingPin();
