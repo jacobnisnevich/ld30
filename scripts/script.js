@@ -43,7 +43,7 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        ball.position.y += 5;
+        ball.position.y += 1;
 
         renderer.render(stage);
 
