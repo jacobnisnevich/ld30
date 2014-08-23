@@ -117,6 +117,7 @@ function init() {
             }
             else {
                 dir = "down";
+                ballSpeed = 0.2;
                 return;
             }
         }
