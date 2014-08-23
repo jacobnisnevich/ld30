@@ -52,7 +52,7 @@ function init() {
     var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
 
     function createBowlingPin() {
-        var chance = Math.floor(Math.random(0,100) * 100;
+        var chance = Math.floor(Math.random(0,100) * 100);
         if (chance == 1) {
         var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
         bowlingPin.anchor.x = .05;
