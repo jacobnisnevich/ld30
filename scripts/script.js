@@ -55,12 +55,12 @@ function init() {
 
     function doKeyDown(evt){
         switch (evt.keyCode) {
-        //    case 38:  /* Up arrow was pressed */
-        //        dir = "up";
-        //        break;
-        //    case 40:  /* Down arrow was pressed */
-        //        dir = "down";
-        //        break;
+    //      case 38:  /* Up arrow was pressed */
+    //          dir = "up";
+    //          break;
+    //      case 40:  /* Down arrow was pressed */
+    //          dir = "down";
+    //          break;
             case 37:  /* Left arrow was pressed */
                 dir = "left";
                 break;
@@ -111,7 +111,7 @@ function init() {
             dir = "down";
         }
         if (dir == "up") {
-            if (ballSpeed > 0.01) {
+            if (ballSpeed > 0.1) {
                 ball.position.y -= ballSpeed;
                 ballSpeed = ballSpeed / 1.05;
             }
