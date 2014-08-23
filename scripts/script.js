@@ -51,19 +51,21 @@ function init() {
 
     var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
 
+    var dir = "down";
+
     function doKeyDown(evt){
         switch (evt.keyCode) {
             case 38:  /* Up arrow was pressed */
-                ball.position.y -= 5;
+                dir = "up";
                 break;
             case 40:  /* Down arrow was pressed */
-                ball.position.y += 5;
+                dir = "down";
                 break;
             case 37:  /* Left arrow was pressed */
-                ball.position.x -= 5;
+                dir = "left";
                 break;
             case 39:  /* Right arrow was pressed */
-                ball.position.x += 5;
+                dir = "right";
                 break;
         }
     }
@@ -94,13 +96,29 @@ function init() {
         return false;
     };
 
+    function moveBall(dir) {
+        if (dir == "up") {
+            ball.position.y -= 5;
+        }
+        else if (dir == "down") {
+            ball.position.y += 5;
+        }
+        else if (dir == "left") {
+            ball.position.x -= 5;
+        }
+        else if (dir == "right") {
+            ball.position.x += 5;
+        }
+    }
+
     requestAnimFrame(update);
 
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
         platform.position.x -= 1;
-        ball.position.y += 1;
+
+        moveBall(dir);
 
         createBowlingPin();
 
