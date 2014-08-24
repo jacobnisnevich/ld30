@@ -182,7 +182,8 @@ function init() {
         spawn = spawnPlatforms(spawn, platforms)
 
         dir = ballGravity(dir);
-        createBowlingPin();
+        
+        //createBowlingPin();
 
         renderer.render(stage);
 
