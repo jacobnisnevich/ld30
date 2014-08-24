@@ -156,10 +156,9 @@ function init() {
 
             platforms.push(platform);
 
-            spawn = 0;
-            return;
+            return 0;
         }
-        spawn++;
+        return spawn + 1;
     }
 
     var platforms = new Array();
@@ -183,7 +182,7 @@ function init() {
         if (key != "NULL")
             key = moveBall(key, dir);
 
-        spawnPlatforms(spawn, platforms)
+        spawn = spawnPlatforms(spawn, platforms)
 
         dir = ballGravity(dir);
         createBowlingPin();
