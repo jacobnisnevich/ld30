@@ -20,11 +20,9 @@ function init() {
     var platforms = new Array();
     spawn = 100;
 
-    addBackground();
-    addBall();
     requestAnimFrame(update);
 
-    // var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
+//    var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
 
 //    function createBowlingPin() {
 //        var chance = Math.floor(Math.random(0,100) * 100);
@@ -37,37 +35,35 @@ function init() {
 //        }
 //    }
 
-    function addBackground() {
-        var farTexture = PIXI.Texture.fromImage("images/background_far.png");
-        far = new PIXI.TilingSprite(farTexture, 800, 600);
-        far.position.x = 0;
-        far.position.y = 0;
-        far.tilePosition.x = 0;
-        far.tilePosition.y = 0;
-        stage.addChild(far);
+    // add background
+    var farTexture = PIXI.Texture.fromImage("images/background_far.png");
+    far = new PIXI.TilingSprite(farTexture, 800, 600);
+    far.position.x = 0;
+    far.position.y = 0;
+    far.tilePosition.x = 0;
+    far.tilePosition.y = 0;
+    stage.addChild(far);
 
-        var midTexture = PIXI.Texture.fromImage("images/background_near.png");
-        mid = new PIXI.TilingSprite(midTexture, 800, 600);
-        mid.position.x = 0;
-        mid.position.y = 0;
-        mid.tilePosition.x = 0;
-        mid.tilePosition.y = 0;
-        stage.addChild(mid);
-    }
+    var midTexture = PIXI.Texture.fromImage("images/background_near.png");
+    mid = new PIXI.TilingSprite(midTexture, 800, 600);
+    mid.position.x = 0;
+    mid.position.y = 0;
+    mid.tilePosition.x = 0;
+    mid.tilePosition.y = 0;
+    stage.addChild(mid);
 
-    function addBall() {
-        var ballTexture = PIXI.Texture.fromImage("images/bowling_ball.png");
-        var ball = new PIXI.Sprite(ballTexture);
-        mid.setInteractive(true);
+    // add ball
+    var ballTexture = PIXI.Texture.fromImage("images/bowling_ball.png");
+    var ball = new PIXI.Sprite(ballTexture);
+    mid.setInteractive(true);
 
-        ball.anchor.x = 0.5;
-        ball.anchor.y = 0.5;
+    ball.anchor.x = 0.5;
+    ball.anchor.y = 0.5;
 
-        ball.position.x = 700;
-        ball.position.y = 100;
+    ball.position.x = 700;
+    ball.position.y = 100;
 
-        stage.addChild(ball);
-    }
+    stage.addChild(ball);
 
     function doKeyDown(evt){
         switch (evt.keyCode) {
