@@ -16,6 +16,7 @@ function init() {
     var gravityRatio = 1.05;
     var scoreCounter = 0;
     var platforms = new Array();
+    var platformHit = new Array();
     spawn = 100;
 
     requestAnimFrame(update);
@@ -158,6 +159,7 @@ function init() {
             stage.addChild(platform);
 
             platforms.push(platform);
+            platformHit.push(false);
 
             return 0;
         }
@@ -173,8 +175,11 @@ function init() {
             if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platforms[i].position.x, platforms[i].position.y, platforms[i].width, platforms[i].height)) {
                 dir = "up";
                 ballSpeed = 5;
-                scoreCounter++;
-                score.setText(scoreCounter);
+                if (!platformHit[i])
+                    scoreCounter++;
+                    score.setText(scoreCounter);
+                    platformHit[i] = true;
+                }
             }
         }
 
