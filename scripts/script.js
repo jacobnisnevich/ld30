@@ -112,19 +112,6 @@ function init() {
 
         requestAnimFrame(update);
 
-    //    var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
-
-    //    function createBowlingPin() {
-    //        var chance = Math.floor(Math.random(0,100) * 100);
-    //        if (chance == 1) {
-    //        var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
-    //        bowlingPin.anchor.x = .05;
-    //        bowlingPin.anchor.y = 0.5;
-    //        bowlingPin.position.x = 800;
-    //        bowlingPin.position.y = 300;
-    //        }
-    //    }
-
         // add background
         var farTexture = PIXI.Texture.fromImage("images/background_far.png");
         far = new PIXI.TilingSprite(farTexture, 800, 600);
@@ -154,17 +141,13 @@ function init() {
         stage.addChild(ball);
 
         // add score counter
-        var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
+        var score = new PIXI.Text("0", {font:"48px Helvetica", fill:"White"});
+        score.position.x = 380;
+        score.position.y = 540;
         stage.addChild(score);
 
         function doKeyDown(evt){
             switch (evt.keyCode) {
-        //      case 38:  /* Up arrow was pressed */
-        //          dir = "up";
-        //          break;
-        //      case 40:  /* Down arrow was pressed */
-        //          dir = "down";
-        //          break;
                 case 37:  /* Left arrow was pressed */
                     key = "left";
                     break;
@@ -279,11 +262,63 @@ function init() {
 
             dir = ballGravity(dir);
 
-            //createBowlingPin();
+            if (ball.position.y > 620) {
+            //    finalScore()
+                location.reload();
+            }
 
             renderer.render(stage);
 
             requestAnimFrame(update);
+        }
+
+        function finalScore() {
+            for (var i = 0; i < platforms.length; i++) {
+                stage.removeChild(platforms[i]);
+            }
+
+            stage.removeChild(score);
+
+            var final = new PIXI.Text("Final score:", {font:"48px Helvetica", fill:"black"});
+            final.position.x = 275;
+            final.position.y = 225;
+            stage.addChild(final);
+            final.setText("Final score: " + scoreCounter);
+
+            var replayTexture = PIXI.Texture.fromImage("images/button_play.png");
+            var replayHover = PIXI.Texture.fromImage("images/button_play_light.png");
+            var replay = new PIXI.Sprite(replayTexture);
+            replay.setInteractive(true);
+            replay.buttonMode = true;
+            replay.anchor.x = 0.5;
+            replay.anchor.y = 0.5;
+            replay.position.x = 400;
+            replay.position.y = 450;
+            stage.addChild(replay);
+
+            requestAnimFrame(finalLoop);
+
+            function finalLoop() {
+                far.tilePosition.x -= 0.128;
+                mid.tilePosition.x -= 0.64;
+
+                renderer.render(stage);
+
+                replay.click = function(mouseData) {
+                    clearStage(stage);
+                    location.reload();
+                }
+
+                replay.mouseover = function(mouseData) {
+                    replay.setTexture(replayHover);
+                }
+
+                replay.mouseout = function(mouseData) {
+                    replay.setTexture(replayTexture);
+                }
+
+                requestAnimFrame(finalLoop);
+            }
         }
     }
 }
