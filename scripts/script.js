@@ -142,7 +142,7 @@ function init() {
     }
 
     function spawnPlatforms(spawn, platforms) {
-        var spawnPosY = 100 + (Math.floor(Math.random() * 100));
+        var spawnPosY = 100 + (Math.floor(Math.random() * 200));
         if (spawn == 20) {
             var platformTexture = PIXI.Texture.fromImage("images/platform.png");
             var platform = new PIXI.Sprite(platformTexture);
@@ -177,11 +177,9 @@ function init() {
                 dir = "up";
                 ballSpeed = 5;
                 scoreCounter++;
-                // score.setText(scoreCounter);
+                score.setText(scoreCounter);
             }
         }
-        
-        score.setText(Math.floor(Math.random() * 100));
 
         if (key != "NULL")
             key = moveBall(key, dir);
