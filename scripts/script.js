@@ -76,7 +76,6 @@ function init() {
     requestAnimFrame(update);
 
     function createBowlingPin() {
-        var chance = Math.floor(Math.random(0,100) * 100);
         var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
         bowlingPin.anchor.x = .05;
         bowlingPin.anchor.y = 0.5;
@@ -96,10 +95,10 @@ function init() {
 
     function moveBall(key, dir) {
         if (key == "left") {
-            ball.position.x -= gameSpeed;
+            ball.position.x -= 5*gameSpeed;
         }
         else if (key == "right") {
-            ball.position.x += gameSpeed;
+            ball.position.x += 5*gameSpeed;
         }
         if (dir == "up") {
             ballSpeed = ballSpeed / gravityRatio;
