@@ -6,42 +6,68 @@ function init() {
     renderer = PIXI.autoDetectRenderer(width, height, document.getElementById("game-canvas"));
     renderer.render(stage);
 
-    var farTexture = PIXI.Texture.fromImage("images/background_far.png");
-    far = new PIXI.TilingSprite(farTexture, 800, 600);
-    far.position.x = 0;
-    far.position.y = 0;
-    far.tilePosition.x = 0;
-    far.tilePosition.y = 0;
-    stage.addChild(far);
-
-    var midTexture = PIXI.Texture.fromImage("images/background_near.png");
-    mid = new PIXI.TilingSprite(midTexture, 800, 600);
-    mid.position.x = 0;
-    mid.position.y = 0;
-    mid.tilePosition.x = 0;
-    mid.tilePosition.y = 0;
-    stage.addChild(mid);
-
-    var ballTexture = PIXI.Texture.fromImage("images/bowling_ball.png");
-    var ball = new PIXI.Sprite(ballTexture);
-    mid.setInteractive(true);
-
-    ball.anchor.x = 0.5;
-    ball.anchor.y = 0.5;
-
-    ball.position.x = 700;
-    ball.position.y = 100;
-
-    stage.addChild(ball);
-
-    mid.click = function(mouseData) {
-       ball.position.y -= 5;
-    }
-
-    var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
-
     var dir = "down";
     var key = "NULL";
+
+    window.addEventListener('keydown', doKeyDown, true);
+
+    var gameSpeed = 4;
+    var ballSpeed = 0.1;
+    var gravityRatio = 1.05;
+    var scoreCounter = 0;
+    var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
+    stage.addChild(score);
+    var platforms = new Array();
+    spawn = 100;
+
+    addBackground();
+    addBall();
+    requestAnimFrame(update);
+
+    // var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
+
+//    function createBowlingPin() {
+//        var chance = Math.floor(Math.random(0,100) * 100);
+//        if (chance == 1) {
+//        var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
+//        bowlingPin.anchor.x = .05;
+//        bowlingPin.anchor.y = 0.5;
+//        bowlingPin.position.x = 800;
+//        bowlingPin.position.y = 300;
+//        }
+//    }
+
+    function addBackground() {
+        var farTexture = PIXI.Texture.fromImage("images/background_far.png");
+        far = new PIXI.TilingSprite(farTexture, 800, 600);
+        far.position.x = 0;
+        far.position.y = 0;
+        far.tilePosition.x = 0;
+        far.tilePosition.y = 0;
+        stage.addChild(far);
+
+        var midTexture = PIXI.Texture.fromImage("images/background_near.png");
+        mid = new PIXI.TilingSprite(midTexture, 800, 600);
+        mid.position.x = 0;
+        mid.position.y = 0;
+        mid.tilePosition.x = 0;
+        mid.tilePosition.y = 0;
+        stage.addChild(mid);
+    }
+
+    function addBall() {
+        var ballTexture = PIXI.Texture.fromImage("images/bowling_ball.png");
+        var ball = new PIXI.Sprite(ballTexture);
+        mid.setInteractive(true);
+
+        ball.anchor.x = 0.5;
+        ball.anchor.y = 0.5;
+
+        ball.position.x = 700;
+        ball.position.y = 100;
+
+        stage.addChild(ball);
+    }
 
     function doKeyDown(evt){
         switch (evt.keyCode) {
@@ -57,32 +83,6 @@ function init() {
             case 39:  /* Right arrow was pressed */
                 key = "right";
                 break;
-        }
-    }
-
-    window.addEventListener('keydown', doKeyDown, true);
-
-    var gameSpeed = 4;
-    var ballSpeed = 0.1;
-    var gravityRatio = 1.05;
-    var scoreCounter = 0;
-
-    var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
-    stage.addChild(score);
-
-    var platforms = new Array();
-    spawn = 100;
-
-    requestAnimFrame(update);
-
-    function createBowlingPin() {
-        var chance = Math.floor(Math.random(0,100) * 100);
-        if (chance == 1) {
-        var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
-        bowlingPin.anchor.x = .05;
-        bowlingPin.anchor.y = 0.5;
-        bowlingPin.position.x = 800;
-        bowlingPin.position.y = 300;
         }
     }
 
