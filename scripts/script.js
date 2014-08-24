@@ -71,7 +71,7 @@ function init() {
     stage.addChild(score);
 
     var platforms = new Array();
-    spawn = 0;
+    spawn = 100;
 
     requestAnimFrame(update);
 
