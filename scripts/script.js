@@ -11,6 +11,9 @@ function init() {
         };
     }
 
+    var highScore = {};
+    highScore.score = localStorage.getItem('highScore');
+
     var zerTexture = PIXI.Texture.fromImage("images/menu_0.png");
     zer = new PIXI.TilingSprite(zerTexture, 800, 600);
     zer.position.x = 0;
@@ -146,6 +149,14 @@ function init() {
         score.position.y = 540;
         stage.addChild(score);
 
+        if (highScore.score != undefined)
+            var high = new PIXI.Text("High score: " + highScore.score, {font:"32px Helvetica", fill:"White"});
+        else
+            var high = new PIXI.Text("High score: " + 0, {font:"32px Helvetica", fill:"White"});
+        high.position.x = 0;
+        high.position.y = 565;
+        stage.addChild(high);
+
         function doKeyDown(evt){
             switch (evt.keyCode) {
                 case 37:  /* Left arrow was pressed */
@@ -250,6 +261,9 @@ function init() {
                     if (!platformHit[i]) {
                         scoreCounter++;
                         score.setText(scoreCounter);
+                        if (scoreCounter > localStorage.getItem('highScore') || localStorage.getItem('highScore') == "undefined")
+                            localStorage.setItem('highScore', scoreCounter);
+                            high.setText("High score: " + localStorage.getItem('highScore'));
                         platformHit[i] = true;
                     }
                 }
@@ -272,53 +286,53 @@ function init() {
             requestAnimFrame(update);
         }
 
-        function finalScore() {
-            for (var i = 0; i < platforms.length; i++) {
-                stage.removeChild(platforms[i]);
-            }
-
-            stage.removeChild(score);
-
-            var final = new PIXI.Text("Final score:", {font:"48px Helvetica", fill:"black"});
-            final.position.x = 275;
-            final.position.y = 225;
-            stage.addChild(final);
-            final.setText("Final score: " + scoreCounter);
-
-            var replayTexture = PIXI.Texture.fromImage("images/button_play.png");
-            var replayHover = PIXI.Texture.fromImage("images/button_play_light.png");
-            var replay = new PIXI.Sprite(replayTexture);
-            replay.setInteractive(true);
-            replay.buttonMode = true;
-            replay.anchor.x = 0.5;
-            replay.anchor.y = 0.5;
-            replay.position.x = 400;
-            replay.position.y = 450;
-            stage.addChild(replay);
-
-            requestAnimFrame(finalLoop);
-
-            function finalLoop() {
-                far.tilePosition.x -= 0.128;
-                mid.tilePosition.x -= 0.64;
-
-                renderer.render(stage);
-
-                replay.click = function(mouseData) {
-                    clearStage(stage);
-                    location.reload();
-                }
-
-                replay.mouseover = function(mouseData) {
-                    replay.setTexture(replayHover);
-                }
-
-                replay.mouseout = function(mouseData) {
-                    replay.setTexture(replayTexture);
-                }
-
-                requestAnimFrame(finalLoop);
-            }
-        }
+//        function finalScore() {
+//            for (var i = 0; i < platforms.length; i++) {
+//                stage.removeChild(platforms[i]);
+//            }
+//
+//            stage.removeChild(score);
+//
+//            var final = new PIXI.Text("Final score:", {font:"48px Helvetica", fill:"black"});
+//            final.position.x = 275;
+//            final.position.y = 225;
+//            stage.addChild(final);
+//            final.setText("Final score: " + scoreCounter);
+//
+//            var replayTexture = PIXI.Texture.fromImage("images/button_play.png");
+//            var replayHover = PIXI.Texture.fromImage("images/button_play_light.png");
+//            var replay = new PIXI.Sprite(replayTexture);
+//            replay.setInteractive(true);
+//            replay.buttonMode = true;
+//            replay.anchor.x = 0.5;
+//            replay.anchor.y = 0.5;
+//            replay.position.x = 400;
+//            replay.position.y = 450;
+//            stage.addChild(replay);
+//
+//            requestAnimFrame(finalLoop);
+//
+//            function finalLoop() {
+//                far.tilePosition.x -= 0.128;
+//                mid.tilePosition.x -= 0.64;
+//
+//                renderer.render(stage);
+//
+//                replay.click = function(mouseData) {
+//                    clearStage(stage);
+//                    location.reload();
+//                }
+//
+//                replay.mouseover = function(mouseData) {
+//                    replay.setTexture(replayHover);
+//                }
+//
+//                replay.mouseout = function(mouseData) {
+//                    replay.setTexture(replayTexture);
+//                }
+//
+//                requestAnimFrame(finalLoop);
+//            }
+//        }
     }
 }
