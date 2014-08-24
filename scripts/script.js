@@ -147,8 +147,8 @@ function init() {
     }
 
     function spawnPlatforms(spawn, platforms) {
-        var spawnPosY = 50 + (Math.floor(Math.random() * 200));
-        if (spawn == 100) {
+        var spawnPosY = 200 + (Math.floor(Math.random() * 200));
+        if (spawn == 125) {
             var platformTexture = PIXI.Texture.fromImage("images/platform.png");
             var platform = new PIXI.Sprite(platformTexture);
 
