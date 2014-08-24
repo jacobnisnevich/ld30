@@ -15,8 +15,6 @@ function init() {
     var ballSpeed = 0.1;
     var gravityRatio = 1.05;
     var scoreCounter = 0;
-    var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
-    stage.addChild(score);
     var platforms = new Array();
     spawn = 100;
 
@@ -64,6 +62,10 @@ function init() {
     ball.position.y = 100;
 
     stage.addChild(ball);
+
+    // add score counter
+    var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
+    stage.addChild(score);
 
     function doKeyDown(evt){
         switch (evt.keyCode) {
@@ -182,7 +184,7 @@ function init() {
         spawn = spawnPlatforms(spawn, platforms)
 
         dir = ballGravity(dir);
-        
+
         //createBowlingPin();
 
         renderer.render(stage);
