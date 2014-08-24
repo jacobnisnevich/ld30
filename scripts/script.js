@@ -81,8 +81,8 @@ function init() {
         var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
         bowlingPin.anchor.x = .05;
         bowlingPin.anchor.y = 0.5;
-        bowlingPin.position.x = 400;
-        bowlingPin.position.y = 300;
+        bowlingPin.position.x = 700;
+        bowlingPin.position.y = 100;
         }
     }
 
