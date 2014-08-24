@@ -155,7 +155,7 @@ function init() {
             stage.addChild(platform);
 
             platforms.push(platform);
-            
+
             spawn = 0;
             return;
         }
@@ -170,13 +170,15 @@ function init() {
     function update() {
         far.tilePosition.x -= 0.128;
         mid.tilePosition.x -= 0.64;
-        // platform.position.x -= (gameSpeed/2); 
-
-        if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platform.position.x, platform.position.y, platform.width, platform.height)) {
-            dir = "up";
-            ballSpeed = 5;
-            scoreCounter++;
-            score.setText(scoreCounter)
+        for (var i = 0; i < platforms.length; i++) {
+            platforms[i].position.x -= (gameSpeed/2); 
+        
+            if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platforms[i].position.x, platforms[i].position.y, platforms[i].width, platforms[i].height)) {
+                dir = "up";
+                ballSpeed = 5;
+                scoreCounter++;
+                score.setText(scoreCounter)
+            }
         }
 
         if (key != "NULL")
