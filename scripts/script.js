@@ -70,6 +70,11 @@ function init() {
     var score = new PIXI.Text("0", {font:"36px Arial", fill:"black"});
     stage.addChild(score);
 
+    var platforms = new Array();
+    spawn = 0;
+
+    requestAnimFrame(update);
+
     function createBowlingPin() {
         var chance = Math.floor(Math.random(0,100) * 100);
         if (chance == 1) {
@@ -142,8 +147,8 @@ function init() {
     }
 
     function spawnPlatforms(spawn, platforms) {
-        var spawnPosY = 100 + (Math.floor(Math.random() * 200));
-        if (spawn == 20) {
+        var spawnPosY = 50 + (Math.floor(Math.random() * 200));
+        if (spawn == 100) {
             var platformTexture = PIXI.Texture.fromImage("images/platform.png");
             var platform = new PIXI.Sprite(platformTexture);
 
@@ -160,10 +165,6 @@ function init() {
         }
         return spawn + 1;
     }
-
-    var platforms = new Array();
-    spawn = 0;
-    requestAnimFrame(update);
 
     function update() {
         far.tilePosition.x -= 0.128;
