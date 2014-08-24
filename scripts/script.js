@@ -77,7 +77,6 @@ function init() {
 
     function createBowlingPin() {
         var chance = Math.floor(Math.random(0,100) * 100);
-        if (chance == 1) {
         var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
         bowlingPin.anchor.x = .05;
         bowlingPin.anchor.y = 0.5;
