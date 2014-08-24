@@ -38,17 +38,6 @@ function init() {
        ball.position.y -= 5;
     }
 
-    var platformTexture = PIXI.Texture.fromImage("images/platform.png");
-    var platform = new PIXI.Sprite(platformTexture);
-
-    platform.anchor.x = 0.5;
-    platform.anchor.y = 0.5;
-
-    platform.position.x = 200;
-    platform.position.y = 300;
-
-    stage.addChild(platform);
-
     var bowlingPinTexture = PIXI.Texture.fromImage("images/bowling_pin.png");
 
     var dir = "down";
@@ -152,10 +141,30 @@ function init() {
         }
     }
 
-    function spawnPlatforms() {
-        // TODO
+    function spawnPlatforms(spawn, platforms) {
+        var spawnPosY = 100 + (Math.floor(Math.random() * 100));
+        if (spawn == 20) {
+            var platformTexture = PIXI.Texture.fromImage("images/platform.png");
+            var platform = new PIXI.Sprite(platformTexture);
+
+            platform.anchor.x = 0.5;
+            platform.anchor.y = 0.5;
+            platform.position.x = 800;
+            platform.position.y = spawnPosY;
+
+            stage.addChild(platform);
+
+            platforms.push(platform);
+            
+            spawn = 0;
+            return;
+        }
+        spawn++;
     }
 
+    var platforms = new Array();
+
+    spawn = 0;
     requestAnimFrame(update);
 
     function update() {
