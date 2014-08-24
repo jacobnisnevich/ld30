@@ -178,7 +178,7 @@ function init() {
                 ballSpeed = 5;
                 scoreCounter++;
                 // score.setText(scoreCounter);
-                score.setText(Math.floor(Math.random() * 100);
+                score.setText(Math.floor(Math.random() * 100));
             }
         }
 
