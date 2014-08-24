@@ -29,8 +29,8 @@ function init() {
     ball.anchor.x = 0.5;
     ball.anchor.y = 0.5;
 
-    ball.position.x = 200;
-    ball.position.y = 150;
+    ball.position.x = 700;
+    ball.position.y = 100;
 
     stage.addChild(ball);
 
@@ -81,8 +81,8 @@ function init() {
         var bowlingPin = new PIXI.Sprite(bowlingPinTexture);
         bowlingPin.anchor.x = .05;
         bowlingPin.anchor.y = 0.5;
-        bowlingPin.position.x = 700;
-        bowlingPin.position.y = 100;
+        bowlingPin.position.x = 800;
+        bowlingPin.position.y = 300;
         }
     }
 
