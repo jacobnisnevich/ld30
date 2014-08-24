@@ -175,7 +175,7 @@ function init() {
             if (hitTest(ball.position.x, ball.position.y, ball.width, ball.height, platforms[i].position.x, platforms[i].position.y, platforms[i].width, platforms[i].height)) {
                 dir = "up";
                 ballSpeed = 5;
-                if (!platformHit[i])
+                if (!platformHit[i]) {
                     scoreCounter++;
                     score.setText(scoreCounter);
                     platformHit[i] = true;
