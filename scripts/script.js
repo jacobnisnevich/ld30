@@ -163,7 +163,6 @@ function init() {
     }
 
     var platforms = new Array();
-
     spawn = 0;
     requestAnimFrame(update);
 
@@ -184,8 +183,9 @@ function init() {
         if (key != "NULL")
             key = moveBall(key, dir);
 
-        dir = ballGravity(dir);
+        spawnPlatforms(spawn, platforms)
 
+        dir = ballGravity(dir);
         createBowlingPin();
 
         renderer.render(stage);
